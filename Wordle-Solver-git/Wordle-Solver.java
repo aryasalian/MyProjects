@@ -16,7 +16,7 @@ class Wordle_Solver{
     private void extract_words(){
 
         try{
-        File target_word_file = new File("solutions.csv");
+        File target_word_file = new File("/Users/testing/MyProjects-github/Wordle-Solver-git/solutions.csv");
         BufferedReader br = new BufferedReader(new FileReader(target_word_file));
         String line = "";
 
@@ -31,7 +31,7 @@ class Wordle_Solver{
         valid_words = (ArrayList<String>)target_words.clone();
         br.close();
 
-        File accepted_guess_words_file = new File("allwords.csv");
+        File accepted_guess_words_file = new File("/Users/testing/MyProjects-github/Wordle-Solver-git/allwords.csv");
         BufferedReader br1 = new BufferedReader(new FileReader(accepted_guess_words_file));
         line = "";  //repurposing old String variable made in this function
 
@@ -214,8 +214,7 @@ class Wordle_Solver{
                     System.out.println("\nNot a 5-letter word!\n");
                     not_5letter_or_valid = true;
                 } 
-
-                if(!ob.accepted_guess_words.contains(guessed_word)){
+                else if(!ob.accepted_guess_words.contains(guessed_word)){
                     System.out.println("\nEnter a valid/real word please! No made-up words allowed!\n");
                     not_5letter_or_valid = true;
                 }
