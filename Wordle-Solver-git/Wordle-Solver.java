@@ -1,6 +1,11 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * @author Arya Salian (github_user: <b>@aryasalian</b>)
+ * @version 1.0
+ * @since 2023-07-29 11:50PM
+ */
 class Wordle_Solver{
 
     ArrayList<String> accepted_guess_words = new ArrayList<String>();       //a list of all the words which Wordle accepts as valid word for guessing
@@ -11,7 +16,8 @@ class Wordle_Solver{
     HashMap<Character, boolean[]> GreenCharList = new HashMap<Character, boolean[]>(); //key:value pair stores letter and corresponding indices where it should be
 
     /**
-     * extracts all the target/solution words from the .csv file and stores it in a global ArrayList<String> object
+     * Extracts all the target/solution words from the .csv file and stores it in a global ArrayList<String> object
+     * Does the same for all words that could be acceptable guesses made by the user
      */
     private void extract_words(){
 
@@ -28,7 +34,7 @@ class Wordle_Solver{
                 target_words.add(word);
             }
         }
-        valid_words = (ArrayList<String>)target_words.clone();
+        valid_words = (ArrayList<String>)target_words.clone();      //clones the ArrayList target_words into valid_words which will keep getting shorter as search criteria becomes more specific(improves efficiency)
         br.close();
 
         File accepted_guess_words_file = new File("/Users/testing/MyProjects-github/Wordle-Solver-git/allwords.csv");
@@ -53,12 +59,18 @@ class Wordle_Solver{
 
     }
 
+    /**
+     * Updates the memory with the list of letters that are black, yellow or green every time a word is guessed by the user
+     * @param letter a letter of the guessed word
+     * @param letterColor the color of the alphabet
+     * @param index the position of that alphabet in the guessed word
+     */
     private void update_CharLists(char letter, char letterColor, int index){
         
         if(letterColor=='B'||letterColor=='b'){       //Letters which aren't in the target/solution word
-            if(YellowCharList.containsKey(letter)){
+            if(YellowCharList.containsKey(letter)){             //since we want words containing yellow letters to be suggested later, for which they'll have to meet the black criteria defined further below
                 boolean[] temp = YellowCharList.get(letter);
-                temp[index] = true;
+                temp[index] = true;         //if yellow AND black, there exists no double instances of that letter in word and nor would that letter exist at black or yellow index when letter appears only once in word
                 YellowCharList.put(letter, temp);
             }
             else{
@@ -83,7 +95,7 @@ class Wordle_Solver{
         else if(letterColor=='G'||letterColor=='g'){      //Letters which are in the target/solution word and at that position
 
             for(char key : YellowCharList.keySet()){
-                if(key!=letter){
+                if(key!=letter){                                   //since if we do this for the green letter too, no green character word would meet the yellow criteria defined further below
                     boolean[] temp  = YellowCharList.get(key);
                     temp[index] = true;                         //since this position will be reserved for this green letter and no other letter can come here(narrows down search)
                     YellowCharList.put(key, temp);
@@ -105,13 +117,18 @@ class Wordle_Solver{
 
     }
     
+    /**
+     * checks if a word has black letters(since any letter that shouldn't appear in the solution word should not be in this word)
+     * @param word a potential solution word that the program may return if it passes all checks
+     * @return true if it passes the criteria, false if not
+     */
     private boolean black_criteria(String word){
         
         int index = -1;
         for(char c : word.toCharArray()){
             index++;
-            if(!(UnusedCharList.contains(c+""))){       //if a letter of the word is not present in UnusedCharList, returns false. I do not want it to return false if it is a green letter and is at its correct index
-                if(GreenCharList.containsKey(c) && GreenCharList.get(c)[index]==true){      //when letter is green and black, let this letter slide but only if its at the right position
+            if(!(UnusedCharList.contains(c+""))){       //if a letter of the word is not present in UnusedCharList, returns false. It should not return false if it is a green letter and is at its correct index
+                if(GreenCharList.containsKey(c) && GreenCharList.get(c)[index]==true){      //when letter is green and black, let this letter meet the criteria but only if its at the specified green index
                     continue;
                 }
                 return false;       //word does not meet criteria
@@ -121,6 +138,11 @@ class Wordle_Solver{
 
     }
 
+    /**
+     * checks if a word has all yellow letters and all of them do not appear at positions that have already been checked and are not the right position for that letter
+     * @param word a potential solution word that the program may return if it passes all checks
+     * @return true if it passes the criteria, false if not
+     */
     private boolean yellow_criteria(String word){
 
          for(char key : YellowCharList.keySet()){
@@ -139,6 +161,11 @@ class Wordle_Solver{
 
     }
 
+    /**
+     * checks if a word has all green letters and they are all at their right position
+     * @param word a potential solution word that the program may return if it passes all checks
+     * @return true if it passes the criteria, false if not
+     */
     private boolean green_criteria(String word){
 
         for(char key : GreenCharList.keySet()){
@@ -157,13 +184,22 @@ class Wordle_Solver{
 
     }
 
+    /**
+     * a compilation of all three criterias for simplicity of code
+     * @param word a potential solution word that the program may return if it passes all three criterias defined
+     * @return true if it passes all three criterias, false if not
+     */
     private boolean all_criterias(String word){
 
         return black_criteria(word) && yellow_criteria(word) && green_criteria(word);  //word should meet all criterias
 
     }
 
-    private ArrayList<String> suggest_all_valid_words(){     //suggests all valid words as an ArrayList
+    /**
+     * suggests all the valid words that could be a solution to the problem at hand
+     * @return an ArrayList of words that are possible solutions
+     */
+    private ArrayList<String> suggest_all_valid_words(){
 
         ArrayList<String> temp = (ArrayList<String>)valid_words.clone();
         valid_words.clear();
@@ -176,7 +212,11 @@ class Wordle_Solver{
 
     }
 
-    private String suggest_valid_word(){          //suggests one random valid word
+    /**
+     * suggests one random potential solution word for the problem at hand
+     * @return a String containing the randomly chosen possible solution word
+     */
+    private String suggest_valid_word(){
 
         Random rand = new Random();
         return valid_words.get(rand.nextInt(valid_words.size()));
@@ -191,7 +231,7 @@ class Wordle_Solver{
             wrong_answer = false;
             ob.extract_words();
 
-        //We will ask user to input the word he just guessed. Then we will go over every character in the word and ask if it was green, yellow or black. 
+       
         //Then we'll call updateCharLists() for each character, update the charLists and since it is in order(0 --> 4), we'll have indices of each letter too.
         //After that we'll call a method to suggest words depending on the charList results.
         //Handle cases where letters are repeated(once a letter is green or yellow, do not remove from unused list to make sure double letter words are included)
@@ -205,7 +245,7 @@ class Wordle_Solver{
         for(int i = 0; i < 6; i++){
 
             do {
-                System.out.printf("Enter the 5-letter word guessed in turn %d: ", (i+1));
+                System.out.printf("Enter the 5-letter word guessed in turn %d: ", (i+1));           //ask user to input the word they just guessed
                 guessed_word = sc.nextLine();
                 guessed_word = guessed_word.toLowerCase();
                 not_5letter_or_valid = false;
@@ -226,7 +266,7 @@ class Wordle_Solver{
 
                 do {
                     c = guessed_word.charAt(j);
-                    System.out.printf("Enter the color of the #%d letter(%c): ", (j+1), c);
+                    System.out.printf("Enter the color of the #%d letter(%c): ", (j+1), c); //go over every character in the word and ask if it was green, yellow or black 
                     letterColor = sc.nextLine();
                     wrong_colour_name = false;
 
@@ -249,6 +289,8 @@ class Wordle_Solver{
 
             //Now that charlists were updated, we do necessary checks on the target word list and output filtered list
             ArrayList<String> all_valid_words = ob.suggest_all_valid_words();
+
+            //solution found
             if(all_valid_words.size()==1){
                 boolean uncertain;
                 boolean decisive_answer = false;
@@ -260,13 +302,13 @@ class Wordle_Solver{
                     if(response.equalsIgnoreCase("yes")){
                         System.out.println("\nGlad I could help you!\n");
                         decisive_answer = true;
-                        break;
+                        break;      //breaks from do-while loop
                     }
                     else if(response.equalsIgnoreCase("no")){
                         System.out.println("\nSorry about that, can I try again?\n");
                         wrong_answer = true;
                         decisive_answer = true;
-                        break;
+                        break;      //breaks from do-while loop
                     }
                     else{
                         System.out.println("\nPlease say either yes or no! -_-\n");
@@ -274,9 +316,11 @@ class Wordle_Solver{
                     }
                 } while (uncertain);
                 if(decisive_answer){
-                    break;
+                    break;      //breaks from outer for loop
                 }
             }
+
+            //solution not found yet
             else{
                 System.out.print("All these words could work: "+all_valid_words+"\n\n");
 
@@ -286,7 +330,7 @@ class Wordle_Solver{
 
         }
         } while (wrong_answer);
-        sc.close();
+        sc.close();                         //making multiple Scanner objects doesnt work hence we make one outside the loop, use it multiple times and then close it
         System.exit(0);
     }
 }
