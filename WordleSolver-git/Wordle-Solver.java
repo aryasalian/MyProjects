@@ -22,7 +22,7 @@ class Wordle_Solver{
     private void extract_words(){
 
         try{
-        File target_word_file = new File("/Users/testing/MyProjects-github/Wordle-Solver-git/solutions.csv");
+        File target_word_file = new File("/Users/testing/MyProjects-github/WordleSolver-git/solutions.csv");
         BufferedReader br = new BufferedReader(new FileReader(target_word_file));
         String line = "";
 
@@ -37,7 +37,7 @@ class Wordle_Solver{
         valid_words = (ArrayList<String>)target_words.clone();      //clones the ArrayList target_words into valid_words which will keep getting shorter as search criteria becomes more specific(improves efficiency)
         br.close();
 
-        File accepted_guess_words_file = new File("/Users/testing/MyProjects-github/Wordle-Solver-git/allwords.csv");
+        File accepted_guess_words_file = new File("/Users/testing/MyProjects-github/WordleSolver-git/allwords.csv");
         BufferedReader br1 = new BufferedReader(new FileReader(accepted_guess_words_file));
         line = "";  //repurposing old String variable made in this function
 
