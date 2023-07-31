@@ -19,10 +19,10 @@ class Wordle_Solver{
      * Extracts all the target/solution words from the .csv file and stores it in a global ArrayList<String> object
      * Does the same for all words that could be acceptable guesses made by the user
      */
-    private void extract_words(){
+    public void extract_words(){
 
         try{
-        File target_word_file = new File("/Users/testing/MyProjects-github/WordleSolver-git/solutions.csv");
+        File target_word_file = new File("WordleSolver-git/wordle-solver-app/src/main/resources/solutions.csv");
         BufferedReader br = new BufferedReader(new FileReader(target_word_file));
         String line = "";
 
@@ -37,7 +37,7 @@ class Wordle_Solver{
         valid_words = (ArrayList<String>)target_words.clone();      //clones the ArrayList target_words into valid_words which will keep getting shorter as search criteria becomes more specific(improves efficiency)
         br.close();
 
-        File accepted_guess_words_file = new File("/Users/testing/MyProjects-github/WordleSolver-git/allwords.csv");
+        File accepted_guess_words_file = new File("WordleSolver-git/wordle-solver-app/src/main/resources/allwords.csv");
         BufferedReader br1 = new BufferedReader(new FileReader(accepted_guess_words_file));
         line = "";  //repurposing old String variable made in this function
 
@@ -65,7 +65,7 @@ class Wordle_Solver{
      * @param letterColor the color of the alphabet
      * @param index the position of that alphabet in the guessed word
      */
-    private void update_CharLists(char letter, char letterColor, int index){
+    public void update_CharLists(char letter, char letterColor, int index){
         
         if(letterColor=='B'||letterColor=='b'){       //Letters which aren't in the target/solution word
             if(YellowCharList.containsKey(letter)){             //since we want words containing yellow letters to be suggested later, for which they'll have to meet the black criteria defined further below
@@ -199,7 +199,7 @@ class Wordle_Solver{
      * suggests all the valid words that could be a solution to the problem at hand
      * @return an ArrayList of words that are possible solutions
      */
-    private ArrayList<String> suggest_all_valid_words(){
+    public ArrayList<String> suggest_all_valid_words(){
 
         ArrayList<String> temp = (ArrayList<String>)valid_words.clone();
         valid_words.clear();
@@ -216,7 +216,7 @@ class Wordle_Solver{
      * suggests one random potential solution word for the problem at hand
      * @return a String containing the randomly chosen possible solution word
      */
-    private String suggest_valid_word(){
+    public String suggest_valid_word(){
 
         Random rand = new Random();
         return valid_words.get(rand.nextInt(valid_words.size()));
