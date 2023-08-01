@@ -1,12 +1,23 @@
+<!DOCTYPE html>
 <html>
-    <form id="wordleForm">
-    <label for="guessedWord">Guessed Word:</label>
-    <input type="text" id="guessedWord" name="guessedWord" required>
-  
-    <label for="letterColors">Letter Colors:</label>
-    <input type="text" id="letterColors" name="letterColors" required>
-  
-    <button type="submit">Submit</button>
+<head>
+    <title>Wordle Solver</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <form id="GuessedWordForm">
+        <label for="guessedWord">Enter Guessed Word:</label>
+        <input type="text" id="guessedWord" required>
+        <button type="submit">Submit</button>
     </form>
-    <script src="WordleSolver-git/wordle-solver-app/src/main/webapp/main.js"></script>
+
+    <form id="LetterColorsForm" style = "display: none">
+        <!-- The color buttons will be dynamically added here -->
+    </form>
+    
+</body>
 </html>
