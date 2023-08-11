@@ -9,11 +9,11 @@ import java.util.*;
 class Wordle_Solver{
 
     ArrayList<String> accepted_guess_words = new ArrayList<String>();       //a list of all the words which Wordle accepts as valid word for guessing
-    ArrayList<String> target_words = new ArrayList<String>();       //a list of words which Wordle chooses as its solution word
-    ArrayList<String> valid_words = new ArrayList<String>();        //a list that keeps updating itself with all words that are valid according to the recent search criteria
-    String UnusedCharList=  "abcdefghijklmnopqrstuvwxyz";       //String which stores the list of characters that havent been used yet/should be included in the search criteria
-    HashMap<Character, boolean[]> YellowCharList = new HashMap<Character, boolean[]>(); //key:value pair stores letter and corresponding indices where it shouldn't be
-    HashMap<Character, boolean[]> GreenCharList = new HashMap<Character, boolean[]>(); //key:value pair stores letter and corresponding indices where it should be
+    private ArrayList<String> target_words = new ArrayList<String>();       //a list of words which Wordle chooses as its solution word
+    private ArrayList<String> valid_words = new ArrayList<String>();        //a list that keeps updating itself with all words that are valid according to the recent search criteria
+    private String UnusedCharList=  "abcdefghijklmnopqrstuvwxyz";       //String which stores the list of characters that havent been used yet/should be included in the search criteria
+    private HashMap<Character, boolean[]> YellowCharList = new HashMap<Character, boolean[]>(); //key:value pair stores letter and corresponding indices where it shouldn't be
+    private HashMap<Character, boolean[]> GreenCharList = new HashMap<Character, boolean[]>(); //key:value pair stores letter and corresponding indices where it should be
 
     /**
      * Extracts all the target/solution words from the .csv file and stores it in a global ArrayList<String> object
@@ -57,6 +57,14 @@ class Wordle_Solver{
             System.out.println(e);
         }
 
+    }
+
+    /**
+     * Getter method for accepted_guess_words ArrayList
+     * @return accepted_guess_words
+     */
+    public ArrayList<String> getAccepted_guess_words() {
+        return accepted_guess_words;
     }
 
     /**
