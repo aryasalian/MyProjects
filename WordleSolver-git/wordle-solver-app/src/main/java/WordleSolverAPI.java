@@ -78,7 +78,7 @@ public class WordleSolverAPI {
 
         get("/wordle/get_valid_guesses", (req, res) -> {
             Gson gson = new Gson();
-            String valid_guesses = gson.toJson(wordleSolver.accepted_guess_words);
+            String valid_guesses = gson.toJson(wordleSolver.getAccepted_guess_words());
             res.type("application/json");
             return valid_guesses;
         });
