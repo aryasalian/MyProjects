@@ -2,6 +2,7 @@ $(document).ready(function () {
     let letterColors = []; // Array to store the letter colors\
     var valid_guesses = []; // Array to store all valid guesses the user can make
     const apiDomainAndPort = "http://localhost:8080"; // Backend server general URL(route not included)
+    const Suggestion = document.getElementById('Suggestion');
 
     // Initialize WordleSolver class in WordleSolverAPI to ensure new WordleSolver object for each session
     fetch (apiDomainAndPort+"/wordle/initialize_WordleSolver", {
@@ -35,49 +36,35 @@ $(document).ready(function () {
                 letterColors[i] = "";           // initialize each value to an empty string so that "no options chosen" error is caught
             }
     
-            // Create element of LetterColorsForm only if it wasn't visible before clicking submit
-            //if (LetterColorsForm.style.display == "none") {
-                // Show the letterColorsForm
-                LetterColorsForm.style.display = "flex";
+            // Show the letterColorsForm
+            LetterColorsForm.style.display = "flex";
+            // Clear any existing form elements
+            LetterColorsForm.innerHTML = '';
 
-                // Clear any existing form elements
-                LetterColorsForm.innerHTML = '';
+            // Traverse over each letter of the guessed word
+            for (let i = 0; i < 5; i++) {
+                const letter = guessedWord[i];
 
-                // Traverse over each letter of the guessed word
-                for (let i = 0; i < 5; i++) {
-                    const letter = guessedWord[i];
+                // Create a label for the letter and color input
+                const label = document.createElement('label');
+                label.textContent = `Enter color for letter '${letter}': `;
+                label.style.padding = '5px';
 
-                    // Create a label for the letter and color input
-                    const label = document.createElement('label');
-                    label.textContent = `Enter color for letter '${letter}': `;
-                    label.style.padding = '5px';
+                // Create the radio button group
+                const radioButtonGroup = createRadioButtonGroup(i);
 
-                    // Create the radio button group
-                    const radioButtonGroup = createRadioButtonGroup(i);
+                // Append the label and radio button group to the form
+                const quesContainer = document.createElement('div');
+                quesContainer.append(label);
+                quesContainer.append(radioButtonGroup);
+                $('#LetterColorsForm').append(quesContainer);
+            }
 
-                    // Append the label and radio button group to the form
-                    const quesContainer = document.createElement('div');
-                    quesContainer.append(label);
-                    quesContainer.append(radioButtonGroup);
-                    $('#LetterColorsForm').append(quesContainer);
-                }
-
-                // Create a button to submit the letter colors
-                const submitButton = document.createElement('button');
-                submitButton.type = 'submit';
-                submitButton.textContent = 'Submit Letter Colors';
-                $('#LetterColorsForm').append(submitButton);
-
-                // Create a button to start afresh
-                const restartButton = document.createElement('button');
-                restartButton.type = 'reset';
-                restartButton.textContent = 'Wanna start afresh?';
-                $('#LetterColorsForm').append(restartButton);
-
-                restartButton.addEventListener('click', function () {
-                    $('body').load(window.location.href);
-                });
-            //}
+            // Create a button to submit the letter colors
+            const submitButton = document.createElement('button');
+            submitButton.type = 'submit';
+            submitButton.textContent = 'Submit Letter Colors';
+            $('#LetterColorsForm').append(submitButton);
         }
     });
 
@@ -164,6 +151,39 @@ $(document).ready(function () {
             .then(result => {
                 // Handle the API response here (e.g., display the suggestions on the page)
                 console.log(result);
+
+                valid_word = result.valid_word;
+                word_found = result.word_found;
+
+                Suggestion.style.display = 'flex';
+                Suggestion.innerHTML = '';
+                Suggestion.style.padding = '5px';
+
+                if(word_found){
+                    document.getElementById("GuessedWordForm").style.display = 'none';
+                    Suggestion.textContent = 'WORD FOUND!\nThe word is '+valid_word+'.';
+                    Suggestion.style.marginTop = '25%';
+                }
+                else if(valid_word == "ERROR: NO SUCH WORD"){
+                    Suggestion.textContent = 'No such word exists...are you sure you inputted the colors right?';
+                }
+                else{
+                    Suggestion.textContent = 'Try '+valid_word;
+                }
+
+                // Create a button to start afresh
+                const restartButton = document.createElement('button');
+                restartButton.type = 'reset';
+                restartButton.textContent = 'Wanna start afresh?';
+                $('#Suggestion').append(restartButton);
+
+                restartButton.addEventListener('click', function () {
+                    $('body').load(window.location.href);
+                });
+ 
+
+                // To calculate which word would be better to cut down on most words, select a guessed word with most white(unused) letters.
+                // For each unused letter in the word, check what % would be cut if it were green, yellow or black and select the % which is the highest to display
             })
             .catch(error => {
                 // Handle errors if the API request fails
