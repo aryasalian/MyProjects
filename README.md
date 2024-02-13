@@ -8,4 +8,4 @@ P.S. - Feel free to make PRs and collaborate with me on projects you think could
 1. [The "15 Puzzle Solver" project](https://github.com/aryasalian/MyProjects/blob/master/15Puzzle-git/README.md)
 2. [The "AIFactChecker" project](https://github.com/aryasalian/MyProjects/blob/master/AIFactChecker-git/README.md)
 3. [The "Wordle Solver" project](https://github.com/aryasalian/MyProjects/blob/master/WordleSolver-git/README.md)
-4. [The "Stock Price Predictor project"](https://github.com/aryasalian/MyProjects/blob/master/StockPricePredictor-git/README.md)
+4. [The "Stock Price Predictor" project](https://github.com/aryasalian/MyProjects/blob/master/StockPricePredictor-git/README.md)
