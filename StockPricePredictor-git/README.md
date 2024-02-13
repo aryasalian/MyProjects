@@ -9,7 +9,7 @@ data analysis.
 
 ## Now onto each file...
 
-### "Google_stock_price.ipynb"
+### "Google_stock_price_predictor.ipynb"
 This is where the code for the predictor is written. The data is pre-processed, reshaped, and then used as a training dataset for our RNN model.
 
 ### "StockPriceModel.h5"
