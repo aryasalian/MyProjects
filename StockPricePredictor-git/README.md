@@ -2,9 +2,10 @@
 
 
 ## _What is StockPricePredictor?_
-The StockPricePredictor is a Recurrent Neural Network(RNN) based Machine Learning model that leverages historical data to predict Google's(GOOG) equity price fluctuations
-and trends. The model uses a time-step of 60 days to predict the stock price for the next day. Stock prices, being a type of time series data, require ML models that
-feature back-propagation to use the feedback on the model's predictions to further develop the model. Hence, RNNs are the perfect choice for such data analysis.
+The StockPricePredictor is a Recurrent Neural Network(RNN) based Machine Learning model that leverages historical data to predict Google's([GOOG](https://g.co/kgs/aRrgPdg))
+equity price fluctuations and trends. The model uses a time-step of 60 days to predict the stock price for the next day. Stock prices, being a type of time series data,
+require ML models that feature back-propagation to use the feedback on the model's predictions to further develop the model. Hence, RNNs are the perfect choice for such
+data analysis.
 
 ## Now onto each file...
 
