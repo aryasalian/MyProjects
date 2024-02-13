@@ -7,6 +7,9 @@ equity price fluctuations and trends. The model uses a time-step of 60 days to p
 require ML models that feature back-propagation to use the feedback on the model's predictions to further develop the model. Hence, RNNs are the perfect choice for such
 data analysis.
 
+![GoogleStockPricePredictor - Sample Result](https://github.com/aryasalian/MyProjects/assets/138736627/0f969d59-6032-4ee4-a298-8ecf99ffea61)
+
+
 ## Now onto each file...
 
 ### "Google_stock_price_predictor.ipynb"
