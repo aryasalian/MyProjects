@@ -2,7 +2,7 @@
 
 
 ## _What is WordleSolver?_
-The WordleSolver is a simple Java application and a rudimentary website that assists you with the **NY Times' famous [Wordle](https://www.nytimes.com/games/wordle/index.html) puzzle**. Just input the first word
+The WordleSolver is a simple Java application and a _**rudimentary**_ website that assists you with the **NY Times' famous [Wordle](https://www.nytimes.com/games/wordle/index.html) puzzle**. Just input the first word
 you guessed and the color of each of its letters and let WordleSolver suggest you the next word. _WordleSolver guarantees you to always get the answer_ and in most cases, **even 
 performs better than another human!** So go ahead and bet that friend you lost to at Wordle last time...with WordleSolver, the tables will turn around this time :)
 
