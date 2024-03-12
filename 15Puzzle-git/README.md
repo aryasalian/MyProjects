@@ -12,6 +12,9 @@ would need to do to get the required configuration. Other important tricks to so
 found [here](https://en.wikipedia.org/wiki/Permutation#Definition)). In theory, you can achieve any even permutation of a set using a 3-cycle. Hence this is the key to our solution and it is 
 also convenient to reproduce it in code by using transpositions to record the movements.
 
+![15-puzzle](https://github.com/aryasalian/MyProjects/assets/138736627/17b0cdbc-fba1-44d8-8985-2ad0901f3d91)
+
+
 ## More about the code's specifics:
 <ins>I/P</ins>: a list of all piece label names at any jumbled-up position (position is denoted by the index number of the element in the said list)
 

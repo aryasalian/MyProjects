@@ -2,9 +2,11 @@
 
 
 ## _What is WordleSolver?_
-The WordleSolver is a simple Java application and a rudimentary website that assists you with the **NY Times' famous [Wordle](https://www.nytimes.com/games/wordle/index.html) puzzle**. Just input the first word
+The WordleSolver is a simple Java application and a _**rudimentary**_ website that assists you with the **NY Times' famous [Wordle](https://www.nytimes.com/games/wordle/index.html) puzzle**. Just input the first word
 you guessed and the color of each of its letters and let WordleSolver suggest you the next word. _WordleSolver guarantees you to always get the answer_ and in most cases, **even 
 performs better than another human!** So go ahead and bet that friend you lost to at Wordle last time...with WordleSolver, the tables will turn around this time :)
+
+<img width="935" alt="Screenshot 2024-02-22 at 1 33 57 PM" src="https://github.com/aryasalian/MyProjects/assets/138736627/891febb1-41e5-4856-bb03-52404b8095c7">
 
 ## Now onto each file...
 
