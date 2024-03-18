@@ -9,4 +9,4 @@ It is a Virtual Experience Program offered by J.P. Morgan & Co. and Forage for g
 ### Task 3: Estimating loan default risk using feature extraction
 ### Task 4: Quantization/Discretization of FICO score signals mapped onto FICO ratings
 
-Each of the folders associated with each task contains a .csv file that contains the data that the model utilizes, a Jupyter Notebook file containing my approach to the problem, and a Jupyter Notebook file containing the solution that the course administrator came up with. My approach to each task is my independent and unguided work.
+Each of the folders associated with each task contains a .csv file that contains the data that the model utilizes, a Jupyter Notebook file containing my approach to the problem, and a Jupyter Notebook file containing the solution that the course administrator came up with. My approach to each task is my independent and unguided work. All of my work contains a code-walkthrough for ease of interpretation.
