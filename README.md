@@ -13,3 +13,5 @@ P.S. - Feel free to make PRs and collaborate with me on projects you think could
 7. [Greyhound Race Predictions](https://github.com/aryasalian/MyProjects/blob/master/Greyhound%20Race%20Prediction/Greyhound%20Prediction%20Exercise.pdf)
 8. [Kalshi x UNC November Gas Price Prediction Competition submission](https://github.com/aryasalian/MyProjects/blob/master/Kalshi-UNC-Comp/Kalshi%20UNC%20Comp%20Pitch%20(Nov%20Gas%20Prices).pdf)
 9. [ECON522 (Labor Economics) Policy Analysis paper: "Analyzing market risk premium for career risk/income instability"](https://github.com/aryasalian/MyProjects/blob/master/ECON522%20Policy%20Analysis%20Paper/ECON_522_Analysis.ipynb)
+10. Kalshi YES & NO Arbitrage Screener (Private Repo)
+11. Kalshi Stop-Loss Bot (Private Repo)
