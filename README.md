@@ -15,4 +15,4 @@ P.S. - Feel free to make PRs and collaborate with me on projects you think could
 9. ["Analyzing & suggesting corrective subsidies for pricing in career risk in essential high-income-volatility occupations"](https://github.com/aryasalian/MyProjects/blob/master/ECON522%20Policy%20Analysis%20Paper/ECON_522_Analysis.ipynb) - ECON522 (Labor Economics) Policy Analysis paper
 10. Kalshi YES & NO Arbitrage Screener (Private Repo) - Out of commission since institutional players took away all edge
 11. Kalshi Stop-Loss Bot (Private Repo) - Helpful when taking diffusion-type trades on jump-type prediction markets
-12. [Tarheel Trader - A Portfolio Tracker, Screener, & AI Insights](tarheel-trader.vercel.app)
+12. [Tarheel Trader - A Portfolio Tracker, Screener, & AI Insights](https://tarheel-trader.vercel.app)
