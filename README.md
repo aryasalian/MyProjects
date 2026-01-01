@@ -15,3 +15,4 @@ P.S. - Feel free to make PRs and collaborate with me on projects you think could
 9. [ECON522 (Labor Economics) Policy Analysis paper: "Analyzing market risk premium for career risk/income instability"](https://github.com/aryasalian/MyProjects/blob/master/ECON522%20Policy%20Analysis%20Paper/ECON_522_Analysis.ipynb)
 10. Kalshi YES & NO Arbitrage Screener (Private Repo)
 11. Kalshi Stop-Loss Bot (Private Repo)
+12. [Tarheel Trader - A Portfolio Tracker, Screener, & AI Insights]()
