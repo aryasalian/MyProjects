@@ -1,6 +1,6 @@
 # MyProjects
 
-This is a repository for all coding projects I, @aryasalian, have taken up and successfully completed during my journey with programming.
+This is a repository for all coding projects I, @aryasalian, have taken up and successfully completed during my journey with programming & quant.
 
 P.S. - Feel free to make PRs and collaborate with me on projects you think could have some cool improvements!
 
