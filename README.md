@@ -4,7 +4,7 @@ This is a repository for all coding projects I, @aryasalian, have taken up and s
 
 P.S. - Feel free to make PRs and collaborate with me on projects you think could have some cool improvements!
 
-My TechStack: 
+### My Tech-Stack (non-exhaustive): 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-05122A?style=flat&logo=typescript)
 ![Next.js](https://img.shields.io/badge/-Next.js-05122A?style=flat&logo=nextdotjs)
 ![Shadcn/ui](https://img.shields.io/badge/-Shadcn_UI-05122A?style=flat&logo=shadcnui)
@@ -15,6 +15,7 @@ My TechStack:
 ![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)
 ![Java](https://img.shields.io/badge/-Java-05122A?style=flat&logo=java)
 ![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-05122A?style=flat&logo=postgresql)
+![Selenium](https://img.shields.io/badge/-Selenium-05122A?style=flat&logo=selenium)
 
 ## Programming Projects:
 1. [15 Puzzle Solver](https://github.com/aryasalian/MyProjects/blob/master/15Puzzle-git/README.md) - Java
