@@ -12,8 +12,8 @@ My TechStack:
 ![Supabase](https://img.shields.io/badge/-Supabase-05122A?style=flat&logo=supabase)
 ![Drizzle](https://img.shields.io/badge/-Drizzle-05122A?style=flat&logo=drizzle)
 ![tRPC](https://img.shields.io/badge/-tRPC-05122A?style=flat&logo=trpc)
-![Python](https://img.shields.io/badge/-python-05122A?style=flat&logo=python)
-![Java](https://img.shields.io/badge/-java-05122A?style=flat&logo=java)
+![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)
+![Java](https://img.shields.io/badge/-Java-05122A?style=flat&logo=Java)
 
 ## Programming Projects:
 1. [15 Puzzle Solver](https://github.com/aryasalian/MyProjects/blob/master/15Puzzle-git/README.md) - Java
