@@ -35,6 +35,6 @@ Research here was mainly done via Python & Selenium
 7. Kalshi YES & NO Arbitrage Screener (Private Repo) - Out of commission since institutional players took away all edge
 8. Kalshi Stop-Loss Bot (Private Repo) - Helpful when taking diffusion-type trades on jump-type prediction markets
 9. Kalshi Hope Premium Fade Strategy (Private Repo) - Ran a taker strategy on NCAAM, NCAAW, NBA, and WNBA Basketball Games with ```32.30% YTD returns``` and a ```96.73% win rate```. The strategy bets on the point leader at some time near to expiration (game end) and profits from the hope that fans have in their teams winning even though it is highly unlikely.
-10. Kalshi Brent and WTI Liquidity Provision Strategy (Private Repo) - Ran a taker+maker strategy that profits by providing early liquidity to market participants in illiquid Brent and WTI Crude Oil Kalshi Markets. Strategy is live and results are yet to be reported.
+10. Kalshi Brent and WTI Liquidity Provision Strategy (Private Repo) - Ran a live vol-selling trading strategy for Brent and WTI crude oil Kalshi markets that exploits mispriced end-of-session volatility and participant exit behavior to generate ```+43.98%``` returns since inception.
 11. ["Improving Hedge Timing for Corn Producers Under Weak Predictive Signals: A Machine Learning Approach"](https://github.com/aryasalian/ECON-573-Research-Project/blob/main/573_Research_Paper.pdf) - ECON573 (ML in Econometrics) Research Paper
 
